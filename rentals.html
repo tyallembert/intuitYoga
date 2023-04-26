@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intuit Yoga</title>
+    <!-- ===CSS=== -->
+    <link rel = "stylesheet"
+    href = "css/style.css"
+    type = "text/css">
+    <!-- ===JS=== -->
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+    <!-- <script src="js/script.js" defer></script> -->
+    <script src="https://kit.fontawesome.com/d8117dcf7d.js" crossorigin="anonymous"></script>
+    <script src="js/hamburger.js" defer></script>
+</head>
+<body>
+    <div class = "nav_container">
+        <div class = "nav_title">
+            <img src="images/logo/logo_no_text.svg" alt="Intuit Yoga Logo" class="logo">
+            <h2>Intuit Yoga</h2>
+        </div>
+        <nav class = "nav_elements">
+            <a href = "index.html">Home</a>
+            <a href =  "yoga-signup.html">Yoga</a>
+            <a href =  "teacher-PD.html">Teacher PD</a>
+            <a href =  "rentals.html">Rentals</a>
+            <a href =  "contact.html">Contact</a>
+        </nav>
+        <div id="hamburger" onclick="toggleHamburger()">
+            <div class="line line1"></div>
+            <div class="line line2"></div>
+            <div class="line line3"></div>
+        </div>
+    </div>
+    <div class = "info_container">
+        <h1>Rentals coming soon!</h1>
+    </div>
+    <script>
+        console.log(window.location.protocol)
+        if(window.location.protocol == "http:"){
+            window.location.protocol = "https:";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intuit Yoga and Educational Services</title>
+    <link rel="shortcut icon" href="images/logo/favicon_logo.png" type="image/x-icon">
+    <!-- ===CSS=== -->
+    <link rel = "stylesheet"
+    href = "css/style.css"
+    type = "text/css">
+    <!-- ===JS=== -->
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+    <!-- <script src="js/script.js" defer></script> -->
+    <script src="https://kit.fontawesome.com/d8117dcf7d.js" crossorigin="anonymous"></script>
+    <script src="js/hamburger.js" defer></script>
+</head>
+<body>
+    <div class = "nav_container">
+        <div class = "nav_title">
+            <img src="images/logo/logo_no_text.svg" alt="Intuit Yoga Logo" class="logo">
+            <h2>Intuit Yoga</h2>
+        </div>
+        <nav class = "nav_elements">
+            <a href = "index.html">Home</a>
+            <a href =  "yoga-signup.html">Yoga</a>
+            <a href =  "teacher-PD.html">Teacher PD</a>
+            <a href =  "rentals.html">Rentals</a>
+            <a href =  "contact.html">Contact</a>
+        </nav>
+        <div id="hamburger" onclick="toggleHamburger()">
+            <div class="line line1"></div>
+            <div class="line line2"></div>
+            <div class="line line3"></div>
+        </div>
+    </div>
+    <div class = "info_container">
+        <div class = "about_container">
+            <div class = "mama_yurt_container">
+                <img src = "./images/mama_yurt.jpeg" alt = "molly holding yurt" class = "mama_yurt_image">
+                <h3 class = "directions_title">Directions</h3>
+                <p class = "about_address">
+                    The Intuit Yoga yurt is located at 284 Spaulding Hill Rd. 
+                    (1.7 miles north of Dummerston Center) Pass the blue house 
+                    on the right at 284 and look for “yurt parking” sign on the 
+                    right about 200 feet later. Park in the gravel lot, then enjoy 
+                    a short amble down the wooded path to the yurt.
+                </p>
+            </div>
+        </div>
+        <div class = "form_container">
+            <h1 class="signupTitle">Yoga Signup</h1>
+            <div class = "form_div">
+                <div class = "success_message">
+                    <p>You have successsfully signed up!</p>
+                </div>
+                <div class = "error_message">
+    
+                </div>
+                <div class="userInfo">
+                    <!-- ===Contact Info Section=== -->
+                    <div class = "contactInfoSection">
+                        <h2>Contact Info</h2>
+                        <p>
+                            <label for = "firstName">First Name</label>
+                            <input oninput="manager.keyDownUpdateInfo(this)"
+                                type = 'text'
+                                id = "firstName"
+                                name = 'firstName'
+                                maxlength = "50"
+                                value=""
+                                require>
+                        </p>
+                        <p>
+                            <label for = "lastName">Last Name</label>
+                            <input oninput="manager.keyDownUpdateInfo(this)"
+                                type = 'text'
+                                id = "lastName"
+                                name = 'lastName'
+                                maxlength = "50"
+                                value=""
+                                require>
+                        </p>
+                        <p>
+                            <label for = "email">Email</label>
+                            <input oninput="manager.keyDownUpdateInfo(this)"
+                                type = 'email'
+                                id = "email"
+                                name = 'email'
+                                maxlength = "50"
+                                value=""
+                                require>
+                        </p>
+                        <p>
+                            <label for = "phoneNumber">Cell Phone Number</label>
+                            <input oninput="manager.keyDownUpdateInfo(this)"
+                                type = 'phone'
+                                id = "phoneNumber"
+                                name = 'phoneNumber'
+                                maxlength = "15"
+                                value=""
+                                require>
+                        </p>
+                    </div>
+                    <!-- ===Experience and Cost=== -->
+                    <div class = "otherInfoContainer">
+                        <h2>Experience</h2>
+                        <div class = "experience_container">
+                            <div onclick = "manager.setExperienceLevel(this)" class = "experience_element active_experience">
+                                <p>Beginner</p>
+                            </div>
+                            <div onclick = "manager.setExperienceLevel(this)" class = "experience_element">
+                                <p>Intermediate</p>
+                            </div>
+                        </div>
+                        <h2 class = "payment_title">Payment</h2>
+                        <div class = "payment_methods_container">
+                            <div class = "payment_method venmo_payment active_payment" onclick="manager.setPaymentType(this)">
+                                <p>venmo</p>
+                            </div>
+                            <div class = "payment_method check_payment innactive_payment" onclick="manager.setPaymentType(this)">
+                                <p>check</p>
+                            </div>
+                        </div>
+                        <div class = "payment_message">
+                            <p>Venmo: @Molly-Stoner-3</p>
+                        </div>
+                    </div>
+                </div>
+                <div class = "which_class">
+                    <h2 class="which_class_main_title">Choose Class</h2>
+                    <div class="which_class_titles_container">
+                        <p class = "which_class_title active_class_type" id="session" onclick="manager.toggleClassType(this)">Session</p>
+                        <p class = "which_class_title" id="individual" onclick="manager.toggleClassType(this)">Individual</p>
+                    </div>
+                    <div class = "all_classes_container">
+                    
+                    </div>
+                </div>
+                <input type = 'submit'
+                    id = "submit"
+                    name = 'submit'
+                    value = 'Submit'
+                    onclick="manager.yogaSignup()">
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footerElement footerLogo">
+            <img src="images/logo/logo_no_text.svg" alt="Intuit Yoga Logo" class="logo">
+        </div>
+        <div class="footerElement">
+            <h3>Intuit Yoga and</h3>
+            <h3>Educational Services, LLC</h3>
+            <p>284 Spaulding Hill Rd.</p>
+            <p>Dummerston, VT 05346</p>
+        </div>
+        <div class="footerElement links">
+            <h3>Links</h3>
+            <a href="index.html">Home</a>
+            <a href="yoga-signup.html">Yoga</a>
+            <a href="teacher-PD.html">Teacher PD</a>
+            <a href="rentals.html">Rentals</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="footerElement whoCreated">
+            <a class="linkedinLink" href="https://www.linkedin.com/in/ty-allembert/">
+                <img src="images/ty.jpg" alt="linkedin logo">
+            </a>
+            <div class="whoCreatedInfo">
+                <h3>Website Developer</h3>
+                <p>Ty Allembert</p>
+            </div>
+        </div>
+    </div>
+    <script src="js/signupManager.js"></script>
+    <script>
+        console.log(window.location.protocol)
+        if(window.location.protocol == "http:"){
+            window.location.protocol = "https:";
+        }
+        const manager = new signupManager(); 
+        manager.getAllParticipants();
+        manager.getAllClasses();
+    </script>
+</body>
+</html>

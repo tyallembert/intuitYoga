@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intuit Yoga</title>
+    <!-- ===CSS=== -->
+    <link rel = "stylesheet"
+    href = "css/style.css"
+    type = "text/css">
+    <!-- ===JS=== -->
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+    <!-- <script src="js/script.js" defer></script> -->
+    <script src="https://kit.fontawesome.com/d8117dcf7d.js" crossorigin="anonymous"></script>
+    <script src="js/hamburger.js" defer></script>
+</head>
+<body>
+    <div class = "nav_container">
+        <div class = "nav_title">
+            <img src="images/logo/logo_no_text.svg" alt="Intuit Yoga Logo" class="logo">
+            <h2>Intuit Yoga</h2>
+        </div>
+        <nav class = "nav_elements">
+            <a href = "index.html">Home</a>
+            <a href =  "yoga-signup.html">Yoga</a>
+            <a href =  "teacher-PD.html">Teacher PD</a>
+            <a href =  "rentals.html">Rentals</a>
+            <a href =  "contact.html">Contact</a>
+        </nav>
+        <div id="hamburger" onclick="toggleHamburger()">
+            <div class="line line1"></div>
+            <div class="line line2"></div>
+            <div class="line line3"></div>
+        </div>
+    </div>
+    <div class = "info_container">
+        <div class = "about_container teacherAbout">
+            <div class="topSectionContainer">
+                <h2 class="quoteHeader">
+                    Teacher as the Social-Emotional Agent of a Classroom:
+                    A 3-Day Summer Retreat
+                </h2>
+                <h3 class="quoteSubHeader">
+                    June 26, 27, 28    OR    August 8, 9, 10  (9:00 - 3:00 daily)
+                </h3>
+                <p class="quote">
+                    “I've come to a frightening conclusion that I am the decisive element in the classroom. It's my personal approach that creates the climate. It's my daily mood that makes the weather. As a teacher, I possess a tremendous power to make a child's life miserable or joyous. I can be a tool of torture or an instrument of inspiration. I can humiliate or heal. In all situations, it is my response that decides whether a crisis will be escalated or de-escalated and a child humanized or dehumanized.”
+                </p>
+                <p class="quoteAuthor">
+                    - Haim G. Ginott
+                </p>
+            </div>
+            <div class="descriptionContainer">
+                <h2 class="descriptionHeader">Program Description</h2>
+                <div class="dailyScheduleContainer">
+                    <img src="images/daily_schedule.png" alt="daily schedule image" class="teacherPDImage">
+                </div>
+                <p>
+                    Each year the challenges we face as teachers seem to accelerate. Academic disparities, social needs, curricular expectations, student and family trauma…the list goes on. Managing the stress of the job takes a special kind of inner strength and agency. With key practices in place, a teacher can maintain a sense of calm and, indeed, be an “instrument of inspiration.”
+                </p>
+                <p>
+                    This summer's  3-day training sessions at Intuit Yoga and Educational Services are designed to immerse you in practices that will ultimately support both you and your students. You will learn skills and practices that strengthen your agency and emotional well-being, so that you have the internal resources needed to face the rigors of teaching every day. We will explore centering practices of yoga, mindfulness, breathwork and meditation as well as SEL practices of fostering belonging and community, communicating effectively, and resolving interpersonal challenges. Each morning workshop will be skill-focused, and each afternoon we will collectively reflect and share about applications for our lives and our classrooms.
+                </p>
+                <p>
+                    The session's format will be one of retreat in an idyllic southern Vermont setting. Breakfast and lunch will be provided, and days will start and end with yoga practices in a brand new yurt, nestled into a wooded hillside. Fourteen participants maximum in each session.
+                </p>
+            </div>
+        </div>
+        <div class = "form_container teacherForm">
+            <h2 class="signupTitle">Signup</h2>
+            <div class = "form_div">
+                <div class = "success_message">
+                    <p>You have successsfully signed up!</p>
+                </div>
+                <div class = "error_message">
+    
+                </div>
+                <div class="userInfo teacherInfo">
+                    <!-- ===Contact Info Section=== -->
+                    <div class = "contactInfoSection">
+                        <h2>Contact Info</h2>
+                        <p>
+                            <label for = "firstName">First Name</label>
+                            <input oninput="manager.keyDownUpdateInfo(this)"
+                                type = 'text'
+                                id = "firstName"
+                                name = 'firstName'
+                                maxlength = "50"
+                                value=""
+                                require>
+                        </p>
+                        <p>
+                            <label for = "lastName">Last Name</label>
+                            <input oninput="manager.keyDownUpdateInfo(this)"
+                                type = 'text'
+                                id = "lastName"
+                                name = 'lastName'
+                                maxlength = "50"
+                                value=""
+                                require>
+                        </p>
+                        <p>
+                            <label for = "email">Email</label>
+                            <input oninput="manager.keyDownUpdateInfo(this)"
+                                type = 'email'
+                                id = "email"
+                                name = 'email'
+                                maxlength = "50"
+                                value=""
+                                require>
+                        </p>
+                        <p>
+                            <label for = "phoneNumber">Cell Phone Number</label>
+                            <input oninput="manager.keyDownUpdateInfo(this)"
+                                type = 'phone'
+                                id = "phoneNumber"
+                                name = 'phoneNumber'
+                                maxlength = "15"
+                                value=""
+                                require>
+                        </p>
+                    </div>
+                    <!-- ===Experience and Cost=== -->
+                    <div class = "otherInfoContainer">
+                        <h2 class = "payment_title">Payment</h2>
+                        <div class = "payment_methods_container">
+                            <div class = "payment_method check_payment active_payment" onclick="manager.setPaymentType(this)">
+                                <p>School PO</p>
+                            </div>
+                            <div class = "payment_method check_payment innactive_payment" onclick="manager.setPaymentType(this)">
+                                <p>check</p>
+                            </div>
+                        </div>
+                        <div class = "payment_message">
+                            <p>Venmo: @Molly-Stoner-3</p>
+                        </div>
+                    </div>
+                </div>
+                <div class = "which_class">
+                    <h2 class="which_class_main_title">Choose Class</h2>
+                    <div class = "all_classes_container teacherClasses">
+                    
+                    </div>
+                </div>
+                <input type = 'submit'
+                    id = "submit"
+                    name = 'submit'
+                    value = 'Submit'
+                    onclick="manager.teacherSignup()">
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footerElement footerLogo">
+            <img src="images/logo/logo_no_text.svg" alt="Intuit Yoga Logo" class="logo">
+        </div>
+        <div class="footerElement">
+            <h3>Intuit Yoga and</h3>
+            <h3>Educational Services, LLC</h3>
+            <p>284 Spaulding Hill Rd.</p>
+            <p>Dummerston, VT 05346</p>
+        </div>
+        <div class="footerElement links">
+            <h3>Links</h3>
+            <a href="index.html">Home</a>
+            <a href="yoga-signup.html">Yoga</a>
+            <a href="teacher-PD.html">Teacher PD</a>
+            <a href="rentals.html">Rentals</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="footerElement whoCreated">
+            <a class="linkedinLink" href="https://www.linkedin.com/in/ty-allembert/">
+                <img src="images/ty.jpg" alt="linkedin logo">
+            </a>
+            <div class="whoCreatedInfo">
+                <h3>Website Developer</h3>
+                <p>Ty Allembert</p>
+            </div>
+        </div>
+    </div>
+    <script src="js/signupManager.js"></script>
+    <script>
+        console.log(window.location.protocol)
+        if(window.location.protocol == "http:"){
+            window.location.protocol = "https:";
+        }
+        const manager = new signupManager(); 
+        manager.getAllClasses();
+        manager.getAllParticipants();
+        manager.classType = "teacher";
+    </script>
+</body>
+</html>

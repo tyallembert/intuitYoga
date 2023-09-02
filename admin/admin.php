@@ -6,10 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Intuit Yoga</title>
-    <!-- ===CSS=== -->
-    <link rel = "stylesheet"
-    href = "../css/style.css"
-    type = "text/css">
     <!-- ===JS=== -->
     <script
         src="https://code.jquery.com/jquery-3.4.1.js"
@@ -17,6 +13,13 @@
         crossorigin="anonymous"></script>
     <!-- <script src="../js/script.js" defer></script> -->
     <script src="https://kit.fontawesome.com/d8117dcf7d.js" crossorigin="anonymous"></script>
+    <!-- ===CSS=== -->
+    <link rel = "stylesheet"
+    href = "../css/style.css"
+    type = "text/css">
+    <link rel = "stylesheet"
+    href = "../css/admin.css"
+    type = "text/css">
     
 </head>
 
@@ -44,21 +47,37 @@ if ($USERNAME == $userhash && $PASSWORD == $passhash) {
     header("Location: sign-in.html");
 }
 ?>
-    <div class = "admin_message_container">
-        <p class = "admin_message"></p>
-        <input type = 'submit'
-                id = "submit"
-                name = 'submit'
-                value = 'Done'
-                onclick="manager.hideMessagePopup()">
-    </div>
     <h2 class = "admin_title">Intuit Yoga ADMIN</h2>
     <div class = "admin_classes_container">
+        <h2 class="currentClassTitle">Select a class</h2>
         <div class = "admin_all_classes_nav">
 
         </div>
         <div class = "main_inner_container">
 
+        </div>
+        <div class="columnSettingsContainer">
+            <div class="settingsButton optionActive" id="firstName" onclick="manager.toggleColumnSetting(this)">
+                <p>First Name</p>
+            </div>
+            <div class="settingsButton optionActive" id="lastName" onclick="manager.toggleColumnSetting(this)">
+                <p>Last Name</p>
+            </div>
+            <div class="settingsButton optionActive" id="email" onclick="manager.toggleColumnSetting(this)">
+                <p>Email</p>
+            </div>
+            <div class="settingsButton optionActive" id="phoneNumber" onclick="manager.toggleColumnSetting(this)">
+                <p>Phone #</p>
+            </div>
+            <div class="settingsButton optionActive" id="experience" onclick="manager.toggleColumnSetting(this)">
+                <p>Experience</p>
+            </div>
+            <div class="settingsButton optionActive" id="paymentMethod" onclick="manager.toggleColumnSetting(this)">
+                <p>Payment</p>
+            </div>
+            <div class="settingsButton optionActive" id="classType" onclick="manager.toggleColumnSetting(this)">
+                <p>Class Type</p>
+            </div>
         </div>
     </div>
     <script src="../js/adminManager.js"></script>
@@ -68,9 +87,20 @@ if ($USERNAME == $userhash && $PASSWORD == $passhash) {
         manager.getAllParticipants();
     </script>
     <!-- ===Templates=== -->
+    <template id="classObjectTemplate">
+        <div class="class_element">
+            <p class = "class_date">Place Holder</p>
+            <div class = "class_more_info">
+                <p class="dayTime">Place Holder</p>
+                <p class="experience">Place Holder</p>
+                <p class="cost">Place Holder</p>
+                <p>Remaining spaces: 14</p>
+            </div>
+        </div>
+    </template>
     <template id = "add_class_template">
         <div class = "add_class_form">
-            <h2>Add Class</h2>
+            <h2>New Class</h2>
             <div class="inputContainer">
                 <label for = "new_date">Date</label>
                 <input oninput="manager.updateInput(this)"

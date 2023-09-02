@@ -1,0 +1,232 @@
+/* -------------------------------------------------- */
+                    /* ===Admin=== */
+/* -------------------------------------------------- */
+.currentClassTitle{
+    position: absolute;
+    left: 18%;
+    top: -1.2em;
+    font-size: 1.8em;
+}
+.admin_classes_container{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 95%;
+    height: 80vh;
+    margin-top: 4em;
+}
+.admin_title{
+    color: var(--color-five);
+    width: 100%;
+}
+.admin_all_classes_nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+    height: 80%;
+    padding: 1em;
+    overflow-y: scroll;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    background-color: var(--color-three);
+}
+.admin_nav_elements{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    margin-left: auto;
+    padding: 5%;
+    width: 100%;
+    background-color: var(--color-two);
+    border: solid 2px var(--color-five);
+    border-radius: 50px;
+    color: var(--color-five);
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 200ms ease;
+}
+.admin_nav_elements .fa-trash{
+    visibility: hidden;
+    transform: translateX(-100px);
+    transition: all 100ms ease;
+}
+.admin_nav_elements:hover .fa-trash{
+    visibility: visible;
+    transform: translateX(0px);
+}
+.active_admin_nav{
+    background-color: var(--color-four);
+    color: white;
+    opacity: 1;
+}
+.main_inner_container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0px 0px 3px white,
+    3px 3px 10px var(--color-shadow);
+    border-radius: 30px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.main_inner_container::-webkit-scrollbar, .admin_all_classes_nav::-webkit-scrollbar{
+    width: 0;
+}
+.main_inner_titles{
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: solid 3px var(--color-five);
+    background-color: var(--color-one);
+    color: black;
+    font-weight: 600;
+    width: 100%;
+}
+.main_inner_titles>p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2%;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.main_inner_titles>p, .admin_participant_element p{
+    width: 100%;
+}
+.main_inner_container .class_element{
+    transform: scale(1.5) translateX(20%);
+    max-width: 300px;
+}
+.admin_participant_element:nth-child(even){
+    background-color: var(--color-three);
+}
+.admin_participant_element:nth-child(odd){
+    background-color: var(--color-one);
+}
+.admin_participant_element{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2%;
+    width: 100%;
+}
+.removeParticipantButton{
+    position: absolute;
+    left: 0;
+    width: 0;
+    display: flex;
+    justify-content: center;
+    transform: translateX(-100px);
+    align-items: center;
+    height: auto;
+    background-color: #de4949;
+    padding: 0.5em;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    transition: all 200ms ease;
+}
+.admin_participant_element:hover .removeParticipantButton{
+    width: auto;
+    transform: translateX(0px);
+    transition: all 200ms ease;
+}
+.admin_participant_element p{
+    width: 100%;
+    text-align: center;
+}
+.nobody_in_class{
+    text-align: center;
+    width: 100%;
+    margin-top: 3em;
+}
+
+/* ===Column Settings=== */
+.columnSettingsContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 15%;
+    height: 80%;
+    padding: 1em;
+    margin-top: 3em;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: var(--color-three);
+}
+.settingsButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0.5em;
+    border: solid 2px var(--color-five);
+    border-radius: 50px;
+    color: var(--color-five);
+    cursor: pointer;
+    transition: all 200ms ease;
+}
+.settingsButton.optionActive{
+    background-color: var(--color-two);
+    box-shadow: 2px 2px 5px var(--color-shadow);
+}
+/* ===Add Class=== */
+.add_class_form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    padding: 2%;
+    background-color: var(--color-two);
+    border-radius: 20px;
+}
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+    margin: 5px 0;
+}
+.radioInput{
+    display: flex;
+    width: 100%;
+    margin: 0.5em 0;
+}
+input[type="radio"]{
+    width: 20px;
+    height: 20px;
+    margin: 0 10px;
+}
+/* ===message=== */
+.admin_message_container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 100;
+}
+.adminInnerMessageContainer{
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-three);
+    border: solid 2px white;
+    border-radius: 20px;
+    padding: 3%;
+}
+.admin_message{
+    color:rgb(49, 110, 61);
+    font-size: 1.3em;
+}

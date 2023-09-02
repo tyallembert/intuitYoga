@@ -38,6 +38,7 @@ class signupManager {
     }
     getAllClasses(){
         this.allClasses = [];
+        $(".loadingClassses").css("display", "block");
 
         let action = "getClasses";
         let ajaxurl = 'handleSignup.php';
@@ -121,6 +122,7 @@ class signupManager {
     }
     // ===Signup functions===
     yogaSignup(){
+        $(".loadingSignup").css("display", "flex");
         let action = "signup";
         var ajaxurl = 'handleSignup.php';
 
@@ -144,7 +146,10 @@ class signupManager {
             $(".error_message").empty();
             // make ajax post to PHP
             $.post(ajaxurl, data, function (response) {
-                $(".success_message").css('display', 'block');
+                setTimeout(() => {
+                    $(".loadingSignup").css("display", "none");
+                    $(".success_message").css('display', 'block');
+                }, 500)
             });
         }else{
             $(".error_message").css('display', 'block');
@@ -270,6 +275,7 @@ class signupManager {
     }
     // ===Show Classes===
     showClassesWindow(){
+        $(".loadingClassses").css("display", "none");
         const MAX_PER_CLASS = 14;
         $(".all_classes_container").empty();
         for(var key in this.allClasses){

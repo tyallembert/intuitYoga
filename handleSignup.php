@@ -49,6 +49,63 @@ function addNewUser($data){
     writeJSON('data/allSignups.json', $currentUsers);
 }
 
+function sendEmail($data){
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
+    $email = $data['email'];
+    $firstName = $data['firstName'];
+    $lastName = $data['lastName'];
+    $payment = $data['paymentMethod'];
+    $classType = $data['classType'];
+
+    // Required variables
+    $FROMEMAIL  = '"Intuit Yoga" <intuitYoga@gmail.com>';
+    $TOEMAIL    = $email;
+    $SUBJECT    = "Thanks for Signing up!";
+
+    $message = `
+        <body>
+            <h1>Hi $firstName!</h1>
+            <p>Thanks for signing up for Intuit Yoga and Educational Services!</p>
+            <p>Your class info is listed below:</p>
+
+            <p>Name: $firstName $lastName</p>
+            <p>Payment Method: $payment</p>
+            <p>Class Type: $classType$</p>
+            <p><Class Date: $/p>
+            <p>Class Time: $</p>
+
+            <p>Best,</p>
+            <p>Intuit Yoga</p>
+        </body>
+    `;
+    // $RANDOMHASH = "anyrandomhash";
+    // $FICTIONALSERVER = "@email.myownserver.com";
+    // $ORGANIZATION = "myownserver.com";
+
+
+    
+    // Basic headers
+    $headers = "From: ".$FROMEMAIL."\n";
+    $headers .= "Reply-To: ".$FROMEMAIL."\n";
+    $headers .= "Return-path: ".$FROMEMAIL."\n";
+    // $headers .= "Message-ID: <".$RANDOMHASH.$FICTIONALSERVER.">\n";
+    $headers .= "X-Mailer: Your Website\n";
+    // $headers .= "Organization: $ORGANIZATION\n";
+    $headers .= "MIME-Version: 1.0\n";
+
+    $headers .= "Content-type: text/html\r\n";
+
+    // Convert plain text body to quoted printable
+    $message = quoted_printable_encode($message);
+
+    // Create a BASE64 encoded subject
+    $subject = "=?UTF-8?B?".base64_encode($SUBJECT)."?=";
+
+    // Send email
+    mail($TOEMAIL, $subject, $message, $headers, "-f".$FROMEMAIL);
+}
+
 // function to read from a file
 function readJSON($file){
     $json = NULL;

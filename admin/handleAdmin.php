@@ -15,6 +15,9 @@ else if($action == "addClass"){
 else if($action == "removeClass"){
     removeClass($_POST);
 }
+else if($action == "removeParticipant"){
+    removeParticipant($_POST);
+}
 
 function addClass($data){
     $date = $data['date'];
@@ -60,6 +63,25 @@ function removeClass($data){
     }
     echo json_encode($currentClasses);
     writeJSON("../data/classes.json", $currentClasses);
+}
+
+function removeParticipant($data){
+    $participantID = $data['userID'];
+    $classID = $data['classID'];
+    $currentParticipants = json_decode(readJSON("../data/allSignups.json"), true);
+    foreach ($currentParticipants as $key => $participantInfo) {
+        if (!isset($participantInfo['userID'])) {
+            // handle the error here
+            continue;
+        }else{
+            if ($participantInfo['userID'] == $participantID && $participantInfo['classID'] == $classID) {
+                unset($currentParticipants[$key]);
+                break;
+            }
+        }
+    }
+    echo json_encode($currentParticipants);
+    writeJSON("../data/allSignups.json", $currentParticipants);
 }
 
 // function to read from a file
